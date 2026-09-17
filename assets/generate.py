@@ -32,14 +32,14 @@ COPY = {
                ("since", "ON GITHUB SINCE")],
         asof="measured {d}",
         projects=[
-            ("exodus", "01", "EXODUS",
+            ("exodus", "03", "EXODUS",
              "TODO: una línea sobre qué hace, en tus palabras.",
              "TODO · tecnologías"),
-            ("chimera", "02", "CHIMERA",
+            ("chimera", "01", "CHIMERA",
              "A desktop environment for reading someone else's codebase — or your own, six "
              "months later. It indexes the project and draws what depends on what.",
              "Python · Qt 6 · QML"),
-            ("tradingtuff", "03", "TRADING TUFF",
+            ("tradingtuff", "02", "TRADING TUFF",
              "A Windows terminal for reading a market in real time: live data, a chart engine "
              "written from scratch, and the context around the price in one screen.",
              "C++17 · Qt 6 · SQLite"),
@@ -60,14 +60,14 @@ COPY = {
                ("since", "EN GITHUB DESDE")],
         asof="medido el {d}",
         projects=[
-            ("exodus", "01", "EXODUS",
+            ("exodus", "03", "EXODUS",
              "TODO: una línea sobre qué hace, en tus palabras.",
              "TODO · tecnologías"),
-            ("chimera", "02", "CHIMERA",
+            ("chimera", "01", "CHIMERA",
              "Un entorno de escritorio para leer el código de otro — o el tuyo, seis meses "
              "después. Indexa el proyecto y dibuja de qué depende cada archivo.",
              "Python · Qt 6 · QML"),
-            ("tradingtuff", "03", "TRADING TUFF",
+            ("tradingtuff", "02", "TRADING TUFF",
              "Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un "
              "motor de gráfico escrito desde cero y todo el contexto en una pantalla.",
              "C++17 · Qt 6 · SQLite"),

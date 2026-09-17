@@ -1,6 +1,12 @@
 # Genera las piezas del perfil. Dos idiomas, una sola paleta: la de GitHub en oscuro.
 #
 # Criterio de diseño, para no volver a caer en la plantilla:
+#   - Tipografía ELEGIDA, no la del sistema. Tres familias con un papel cada una:
+#       Archivo Black  -> el nombre y las cifras. Lo que debe pesar.
+#       Space Grotesk  -> títulos y texto corrido.
+#       JetBrains Mono -> etiquetas pequeñas y datos.
+#     Las tres van incrustadas en el SVG (base64), recortadas a los caracteres
+#     que cada pieza usa: no dependen de la red ni de lo que tenga el visitante.
 #   - El apellido va EN CONTORNO, sin relleno. Es el gesto de la pieza.
 #   - Nada de pastillas ni emojis: el stack es una lista tipográfica.
 #   - Las bandas no son todas iguales; cambian de altura, densidad y ritmo.
@@ -8,10 +14,16 @@
 #
 # Uso:  python assets/generate.py      (pide las cifras a GitHub si tienes `gh`)
 
+import base64
 import datetime
+import io
 import json
 import os
 import subprocess
+
+from fontTools import subset
+from fontTools.ttLib import TTFont
+from fontTools.varLib import instancer
 
 NAME_FIRST, NAME_LAST = "JOSÉ", "DURÁN"
 CITY = "BOGOTÁ · COLOMBIA"
@@ -74,22 +86,73 @@ COPY = {
 }
 
 BG, INK, MUTED, DIM, RULE = "#0D1117", "#FFFFFF", "#8B949E", "#5A626C", "#262C36"
-SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
-MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace"
 XMLDECL = '<?xml version="1.0" encoding="UTF-8"?>'
 W, M = 880, 56
 HERE = os.path.dirname(os.path.abspath(__file__))
+FONTDIR = os.path.join(HERE, "fonts")
+
+# Cada papel tipográfico: su archivo, el peso al que se fija la variable, y el respaldo
+# por si el visitante usa un navegador que no admite fuentes incrustadas en SVG.
+FACES = {
+    "display": dict(file="ArchivoBlack-Regular.ttf", wght=None, family="TuffDisplay",
+                    fallback="'Arial Black', Impact, sans-serif"),
+    "sans":    dict(file="SpaceGrotesk.ttf", wght=400, family="TuffSans",
+                    fallback="'Segoe UI', Helvetica, Arial, sans-serif"),
+    "sansb":   dict(file="SpaceGrotesk.ttf", wght=700, family="TuffSansBold",
+                    fallback="'Segoe UI Semibold', Helvetica, Arial, sans-serif"),
+    "mono":    dict(file="JetBrainsMono.ttf", wght=500, family="TuffMono",
+                    fallback="Consolas, 'Liberation Mono', monospace"),
+}
+
+_used = {}          # papel -> caracteres usados en la pieza que se está construyendo
+_cache = {}         # (papel, caracteres) -> base64, para no recortar dos veces lo mismo
 
 
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def txt(x, y, s, size, fill="none", family=SANS, weight=None, sp=None, anchor=None,
-        opacity=None, stroke=None, sw=None):
-    a = [f'x="{x}"', f'y="{y}"', f'font-family="{family}"', f'font-size="{size}"', f'fill="{fill}"']
-    if weight:
-        a.append(f'font-weight="{weight}"')
+def embed(face_key, chars):
+    """Recorta la fuente a esos caracteres y la devuelve en base64 woff2."""
+    key = (face_key, chars)
+    if key in _cache:
+        return _cache[key]
+    spec = FACES[face_key]
+    font = TTFont(os.path.join(FONTDIR, spec["file"]))
+    if spec["wght"] is not None and "fvar" in font:
+        font = instancer.instantiateVariableFont(font, {"wght": spec["wght"]}, inplace=False)
+    opts = subset.Options(layout_features=["*"], notdef_outline=True)
+    opts.drop_tables += ["DSIG"]
+    sub = subset.Subsetter(options=opts)
+    sub.populate(text=chars)
+    sub.subset(font)
+    buf = io.BytesIO()
+    font.flavor = "woff2"
+    font.save(buf)
+    _cache[key] = base64.b64encode(buf.getvalue()).decode("ascii")
+    return _cache[key]
+
+
+def fontcss():
+    """Bloque @font-face con solo las familias que esta pieza usa de verdad."""
+    rules = []
+    for key in sorted(_used):
+        chars = "".join(sorted(set(_used[key])))
+        if not chars.strip():
+            continue
+        spec = FACES[key]
+        rules.append(f"@font-face{{font-family:'{spec['family']}';font-style:normal;"
+                     f"font-weight:400;src:url(data:font/woff2;base64,{embed(key, chars)}) "
+                     f"format('woff2')}}")
+    return f"<defs><style>{''.join(rules)}</style></defs>" if rules else ""
+
+
+def txt(x, y, s, size, fill="none", face="sans", sp=None, anchor=None, opacity=None,
+        stroke=None, sw=None):
+    _used.setdefault(face, set()).update(s)
+    spec = FACES[face]
+    a = [f'x="{x}"', f'y="{y}"', f'font-family="{spec["family"]}, {spec["fallback"]}"',
+         f'font-size="{size}"', f'fill="{fill}"']
     if sp is not None:
         a.append(f'letter-spacing="{sp}"')
     if anchor:
@@ -105,10 +168,12 @@ def hline(x1, y, x2, color=RULE, w=1):
     return f'<line x1="{x1}" y1="{y}" x2="{x2}" y2="{y}" stroke="{color}" stroke-width="{w}"/>'
 
 
-def panel(h, label, texture=False):
+def start(h, label, texture=False):
+    _used.clear()
     p = [XMLDECL,
          f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" '
-         f'role="img" aria-label="{esc(label)}">']
+         f'role="img" aria-label="{esc(label)}">',
+         "@@FONTS@@"]
     if texture:
         # Rejilla a media tinta: da profundidad al negro plano sin meter un solo color.
         p.append('<defs><pattern id="g" width="28" height="28" patternUnits="userSpaceOnUse">'
@@ -118,6 +183,11 @@ def panel(h, label, texture=False):
     if texture:
         p.append(f'<rect width="{W}" height="{h}" fill="url(#g)"/>')
     return p
+
+
+def end(p):
+    p.append("</svg>")
+    return "\n".join(p).replace("@@FONTS@@", fontcss())
 
 
 def wrap(text, limit):
@@ -136,41 +206,39 @@ def wrap(text, limit):
 def hero(c):
     H = 300
     right = W - M
-    p = panel(H, f"{NAME_FIRST} {NAME_LAST} — {ROLE}", texture=True)
+    p = start(H, f"{NAME_FIRST} {NAME_LAST} — {ROLE}", texture=True)
     p.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" fill="none" stroke="{RULE}"/>')
-    p.append(txt(M, 46, ROLE, 10, MUTED, MONO, sp=4))
-    p.append(txt(right, 46, CITY, 10, MUTED, MONO, sp=2, anchor="end"))
+    p.append(txt(M, 46, ROLE, 10, MUTED, "mono", sp=4))
+    p.append(txt(right, 46, CITY, 10, MUTED, "mono", sp=2, anchor="end"))
     p.append(hline(M, 60, right))
 
     # El nombre en dos lineas: el apellido va en contorno. Ese hueco es el gesto de la pieza.
-    p.append(txt(M, 150, NAME_FIRST, 78, INK, SANS, weight=800, sp=-3))
-    p.append(txt(M, 226, NAME_LAST, 78, "none", SANS, weight=800, sp=-3, stroke=INK, sw=1.4))
+    p.append(txt(M, 152, NAME_FIRST, 76, INK, "display", sp=-2))
+    p.append(txt(M, 228, NAME_LAST, 76, "none", "display", sp=-2, stroke=INK, sw=1.3))
 
     for i, (label, tech) in enumerate(c["disciplines"]):
         y = 118 + i * 48
         p.append(hline(560, y - 26, right))
-        p.append(txt(right, y - 8, label, 9.5, DIM, MONO, sp=2.6, anchor="end"))
-        p.append(txt(right, y + 12, tech, 13, MUTED, SANS, anchor="end"))
+        p.append(txt(right, y - 8, label, 9.5, MUTED, "mono", sp=2.6, anchor="end"))
+        p.append(txt(right, y + 12, tech, 13, MUTED, "sans", anchor="end"))
 
     p.append(hline(M, 254, right))
-    p.append(txt(M, 278, c["claim"], 13.5, MUTED))
-    p.append('</svg>')
-    return "\n".join(p)
+    p.append(txt(M, 278, c["claim"], 13.5, MUTED, "sans"))
+    return end(p)
 
 
 def stack(c):
     ROW = 44
     H = 14 + len(c["stack"]) * ROW + 10
-    p = panel(H, "Stack")
+    p = start(H, "Stack")
     y = 14
     for i, (label, techs) in enumerate(c["stack"]):
         if i:
             p.append(hline(M, y, W - M))
-        p.append(txt(M, y + 28, label, 9.5, MUTED, MONO, sp=2.8))
-        p.append(txt(M + 152, y + 28, techs, 14.5, INK, SANS))
+        p.append(txt(M, y + 28, label, 9.5, MUTED, "mono", sp=2.8))
+        p.append(txt(M + 152, y + 28, techs, 14.5, INK, "sans"))
         y += ROW
-    p.append('</svg>')
-    return "\n".join(p)
+    return end(p)
 
 
 def card(c, project, data):
@@ -178,30 +246,29 @@ def card(c, project, data):
     _slug, num, title, desc, tech, metric_key, metric_label = project
     BOX, GAP = 132, 12
     right = W - M
-    p = panel(BOX + GAP, f"{title} — {desc}")
+    p = start(BOX + GAP, f"{title} — {desc}")
     p.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{BOX-1}" fill="none" stroke="{RULE}"/>')
     p.append(f'<rect x="0" y="0" width="3" height="{BOX}" fill="{INK}"/>')
 
     # El ordinal, enorme y casi invisible: da profundidad y marca el orden sin gritar.
-    p.append(txt(M - 20, 120, num, 108, INK, SANS, weight=800, sp=-6, opacity=0.075))
+    p.append(txt(M - 20, 122, num, 104, INK, "display", sp=-4, opacity=0.075))
 
-    p.append(txt(M, 54, title, 24, INK, SANS, weight=700, sp=-0.5))
+    p.append(txt(M, 56, title, 23, INK, "sansb", sp=-0.4))
     for i, ln in enumerate(wrap(desc, 82)[:2]):
-        p.append(txt(M, 82 + i * 18, ln, 13, MUTED))
-    p.append(txt(M, 120, tech, 10.5, MUTED, MONO, sp=1.4))
+        p.append(txt(M, 84 + i * 18, ln, 13, MUTED, "sans"))
+    p.append(txt(M, 121, tech, 10.5, MUTED, "mono", sp=1.2))
 
     p.append(hline(right - 150, 40, right))
-    p.append(txt(right, 74, f"{data[metric_key]:,}".replace(",", " "), 26, INK, SANS,
-                 weight=700, sp=-1, anchor="end"))
-    p.append(txt(right, 92, metric_label, 9, MUTED, MONO, sp=2.2, anchor="end"))
-    p.append(txt(right, 120, c["open_label"], 10, INK, MONO, sp=1.8, anchor="end"))
-    p.append('</svg>')
-    return "\n".join(p)
+    p.append(txt(right, 76, f"{data[metric_key]:,}".replace(",", " "), 26, INK, "display",
+                 sp=-0.5, anchor="end"))
+    p.append(txt(right, 94, metric_label, 9, MUTED, "mono", sp=2.2, anchor="end"))
+    p.append(txt(right, 121, c["open_label"], 10, INK, "mono", sp=1.8, anchor="end"))
+    return end(p)
 
 
 def stats(c, data, stamp):
     H = 152
-    p = panel(H, "Numbers")
+    p = start(H, "Numbers")
     p.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" fill="none" stroke="{RULE}"/>')
     col = (W - M * 2) / len(c["stats"])
     for i, (key, label) in enumerate(c["stats"]):
@@ -210,12 +277,11 @@ def stats(c, data, stamp):
             p.append(f'<line x1="{x-28:.0f}" y1="38" x2="{x-28:.0f}" y2="104" '
                      f'stroke="{RULE}" stroke-width="1"/>')
         value = str(data[key]) if key == "since" else f"{data[key]:,}".replace(",", " ")
-        p.append(txt(x, 84, value, 52, INK, SANS, weight=800, sp=-2.5))
-        p.append(txt(x, 104, label, 9.5, MUTED, MONO, sp=2.4))
+        p.append(txt(x, 86, value, 50, INK, "display", sp=-1.5))
+        p.append(txt(x, 106, label, 9.5, MUTED, "mono", sp=2.4))
     p.append(hline(M, 122, W - M))
-    p.append(txt(M, 140, c["asof"].format(d=stamp), 9, DIM, MONO, sp=1.2))
-    p.append('</svg>')
-    return "\n".join(p)
+    p.append(txt(M, 140, c["asof"].format(d=stamp), 9, DIM, "mono", sp=1.2))
+    return end(p)
 
 
 def hairline():
@@ -251,9 +317,10 @@ def fetch():
 
 
 def write(name, body):
-    with open(os.path.join(HERE, name), "w", encoding="utf-8", newline="\n") as f:
+    path = os.path.join(HERE, name)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(body + "\n")
-    print("wrote", name)
+    print(f"  {name:26} {os.path.getsize(path)/1024:6.1f} KB")
 
 
 data = fetch()

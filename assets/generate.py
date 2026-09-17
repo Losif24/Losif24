@@ -1,5 +1,5 @@
 # Genera la portada, el stack, las fichas y las cifras del perfil. Dos idiomas.
-# Una sola paleta: fondo negro, letras blancas. La banda y las cifras van invertidas.
+# Una sola paleta: el fondo oscuro de GitHub con letras blancas. La banda va invertida.
 # Uso:  python assets/generate.py       (pide las cifras a GitHub si tienes `gh`)
 
 import datetime
@@ -32,14 +32,14 @@ COPY = {
                ("since", "ON GITHUB SINCE")],
         asof="measured {d}",
         projects=[
-            ("exodus", "03", "EXODUS",
+            ("exodus", "EXODUS",
              "TODO: una línea sobre qué hace, en tus palabras.",
              "TODO · tecnologías"),
-            ("chimera", "01", "CHIMERA",
+            ("chimera", "CHIMERA",
              "A desktop environment for reading someone else's codebase — or your own, six "
              "months later. It indexes the project and draws what depends on what.",
              "Python · Qt 6 · QML"),
-            ("tradingtuff", "02", "TRADING TUFF",
+            ("tradingtuff", "TRADING TUFF",
              "A Windows terminal for reading a market in real time: live data, a chart engine "
              "written from scratch, and the context around the price in one screen.",
              "C++17 · Qt 6 · SQLite"),
@@ -60,14 +60,14 @@ COPY = {
                ("since", "EN GITHUB DESDE")],
         asof="medido el {d}",
         projects=[
-            ("exodus", "03", "EXODUS",
+            ("exodus", "EXODUS",
              "TODO: una línea sobre qué hace, en tus palabras.",
              "TODO · tecnologías"),
-            ("chimera", "01", "CHIMERA",
+            ("chimera", "CHIMERA",
              "Un entorno de escritorio para leer el código de otro — o el tuyo, seis meses "
              "después. Indexa el proyecto y dibuja de qué depende cada archivo.",
              "Python · Qt 6 · QML"),
-            ("tradingtuff", "02", "TRADING TUFF",
+            ("tradingtuff", "TRADING TUFF",
              "Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un "
              "motor de gráfico escrito desde cero y todo el contexto en una pantalla.",
              "C++17 · Qt 6 · SQLite"),
@@ -75,7 +75,9 @@ COPY = {
     ),
 }
 
-BG, INK, MUTED, RULE, CHIP = "#000000", "#FFFFFF", "#9A9A9A", "#2B2B2B", "#0E0E0E"
+# Los colores son los del propio GitHub en tema oscuro (lienzo, borde y gris apagado):
+# asi las piezas no se ven pegadas encima de la pagina, sino que son la pagina.
+BG, INK, MUTED, RULE, CHIP = "#0D1117", "#FFFFFF", "#9198A1", "#3D444D", "#161B22"
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace"
 XMLDECL = '<?xml version="1.0" encoding="UTF-8"?>'
@@ -171,18 +173,17 @@ def stack(c):
 
 def card(c, project):
     """Ficha de proyecto. Se publica envuelta en un enlace, asi que toda ella es pulsable."""
-    _slug, num, title, desc, tech = project
-    BOX, GAP = 110, 10          # el hueco va DENTRO del svg: asi las fichas nunca se pegan
+    _slug, title, desc, tech = project
+    BOX, GAP = 100, 10          # el hueco va DENTRO del svg: asi las fichas nunca se pegan
     right = W - 28
     p = head(BOX + GAP, f"{title} — {desc}")
     p.append(f'<rect x="0.5" y="0.5" width="{W-1}" height="{BOX-1}" fill="none" stroke="{RULE}" rx="3"/>')
     p.append(f'<rect x="0" y="0" width="4" height="{BOX}" fill="{INK}"/>')
-    p.append(txt(32, 34, num, 10.5, MUTED, MONO, spacing=2.4))
-    p.append(txt(32, 60, title, 21, INK, SANS, weight=700, spacing=-0.3))
+    p.append(txt(32, 46, title, 21, INK, SANS, weight=700, spacing=-0.3))
     for i, ln in enumerate(wrap(desc, 88)[:2]):
-        p.append(txt(32, 82 + i * 17, ln, 13, MUTED))
-    p.append(txt(right, 34, tech, 11, MUTED, MONO, spacing=0.6, anchor="end"))
-    p.append(txt(right, 60, c["open_label"], 11, INK, MONO, spacing=1.6, anchor="end"))
+        p.append(txt(32, 70 + i * 17, ln, 13, MUTED))
+    p.append(txt(right, 46, tech, 11, MUTED, MONO, spacing=0.6, anchor="end"))
+    p.append(txt(right, 70, c["open_label"], 11, INK, MONO, spacing=1.6, anchor="end"))
     p.append('</svg>')
     return "\n".join(p)
 

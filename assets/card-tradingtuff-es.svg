@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="120" viewBox="0 0 880 120" role="img" aria-label="TRADING TUFF — Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un motor de gráfico escrito desde cero y todo el contexto en una pantalla.">
-<rect width="880" height="120" fill="#000000"/>
-<rect x="0.5" y="0.5" width="879" height="109" fill="none" stroke="#2B2B2B" rx="3"/>
-<rect x="0" y="0" width="4" height="110" fill="#FFFFFF"/>
-<text x="32" y="34" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">02</text>
-<text x="32" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" fill="#FFFFFF" font-weight="700" letter-spacing="-0.3">TRADING TUFF</text>
-<text x="32" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9A9A9A">Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un motor de</text>
-<text x="32" y="99" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9A9A9A">gráfico escrito desde cero y todo el contexto en una pantalla.</text>
-<text x="852" y="34" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#9A9A9A" letter-spacing="0.6" text-anchor="end">C++17 · Qt 6 · SQLite</text>
-<text x="852" y="60" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.6" text-anchor="end">ABRIR ↗</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="110" viewBox="0 0 880 110" role="img" aria-label="TRADING TUFF — Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un motor de gráfico escrito desde cero y todo el contexto en una pantalla.">
+<rect width="880" height="110" fill="#0D1117"/>
+<rect x="0.5" y="0.5" width="879" height="99" fill="none" stroke="#3D444D" rx="3"/>
+<rect x="0" y="0" width="4" height="100" fill="#FFFFFF"/>
+<text x="32" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" fill="#FFFFFF" font-weight="700" letter-spacing="-0.3">TRADING TUFF</text>
+<text x="32" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9198A1">Una terminal de Windows para leer un mercado en vivo: datos en tiempo real, un motor de</text>
+<text x="32" y="87" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9198A1">gráfico escrito desde cero y todo el contexto en una pantalla.</text>
+<text x="852" y="46" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#9198A1" letter-spacing="0.6" text-anchor="end">C++17 · Qt 6 · SQLite</text>
+<text x="852" y="70" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.6" text-anchor="end">ABRIR ↗</text>
 </svg>

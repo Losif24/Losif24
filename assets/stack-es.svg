@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="235" viewBox="0 0 880 235" role="img" aria-label="Stack">
-<rect width="880" height="235" fill="#000000"/>
-<text x="48" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">ESCRITORIO</text>
-<rect x="188.5" y="10.5" width="66" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect width="880" height="235" fill="#0D1117"/>
+<text x="48" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9198A1" letter-spacing="2.4">ESCRITORIO</text>
+<rect x="188.5" y="10.5" width="66" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="221.0" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">C++17</text>
-<rect x="263.5" y="10.5" width="58" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="263.5" y="10.5" width="58" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="292.0" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Qt 6</text>
-<rect x="330.5" y="10.5" width="87" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="330.5" y="10.5" width="87" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="373.5" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">C# / WPF</text>
-<rect x="426.5" y="10.5" width="80" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="426.5" y="10.5" width="80" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="466.0" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">PySide6</text>
-<rect x="515.5" y="10.5" width="129" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="515.5" y="10.5" width="129" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="579.5" y="29.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Win32 / ConPTY</text>
-<text x="48" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">MÓVIL</text>
-<rect x="188.5" y="53.5" width="73" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<text x="48" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9198A1" letter-spacing="2.4">MÓVIL</text>
+<rect x="188.5" y="53.5" width="73" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="224.5" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Kotlin</text>
-<rect x="270.5" y="53.5" width="136" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="270.5" y="53.5" width="136" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="338.0" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Jetpack Compose</text>
-<rect x="415.5" y="53.5" width="101" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="415.5" y="53.5" width="101" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="465.5" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Material 3</text>
-<rect x="525.5" y="53.5" width="108" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="525.5" y="53.5" width="108" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="579.0" y="72.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Android SDK</text>
-<text x="48" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">BACKEND</text>
-<rect x="188.5" y="96.5" width="73" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<text x="48" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9198A1" letter-spacing="2.4">BACKEND</text>
+<rect x="188.5" y="96.5" width="73" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="224.5" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Python</text>
-<rect x="270.5" y="96.5" width="80" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="270.5" y="96.5" width="80" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="310.0" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">FastAPI</text>
-<rect x="359.5" y="96.5" width="73" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="359.5" y="96.5" width="73" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="395.5" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">SQLite</text>
-<rect x="441.5" y="96.5" width="87" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="441.5" y="96.5" width="87" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="484.5" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Supabase</text>
-<rect x="537.5" y="96.5" width="94" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="537.5" y="96.5" width="94" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="584.0" y="115.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">WebSocket</text>
-<text x="48" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">WEB</text>
-<rect x="188.5" y="139.5" width="101" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<text x="48" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9198A1" letter-spacing="2.4">WEB</text>
+<rect x="188.5" y="139.5" width="101" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="238.5" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">TypeScript</text>
-<rect x="298.5" y="139.5" width="66" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="298.5" y="139.5" width="66" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="331.0" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">React</text>
-<rect x="373.5" y="139.5" width="101" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="373.5" y="139.5" width="101" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="423.5" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">HTML / CSS</text>
-<text x="48" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">ENTREGA</text>
-<rect x="188.5" y="182.5" width="51" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<text x="48" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9198A1" letter-spacing="2.4">ENTREGA</text>
+<rect x="188.5" y="182.5" width="51" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="213.5" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Git</text>
-<rect x="248.5" y="182.5" width="136" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="248.5" y="182.5" width="136" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="316.0" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">CMake / MSBuild</text>
-<rect x="393.5" y="182.5" width="101" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="393.5" y="182.5" width="101" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="443.5" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Inno Setup</text>
-<rect x="503.5" y="182.5" width="73" height="30" rx="3" fill="#0E0E0E" stroke="#2B2B2B"/>
+<rect x="503.5" y="182.5" width="73" height="30" rx="3" fill="#161B22" stroke="#3D444D"/>
 <text x="539.5" y="201.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="12.5" fill="#FFFFFF" text-anchor="middle">OpenCV</text>
 </svg>

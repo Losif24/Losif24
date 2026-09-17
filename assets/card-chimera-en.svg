@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="110" viewBox="0 0 880 110" role="img" aria-label="CHIMERA — A desktop environment for reading someone else's codebase — or your own, six months later. It indexes the project and draws what depends on what.">
-<rect width="880" height="110" fill="#0D1117"/>
-<rect x="0.5" y="0.5" width="879" height="99" fill="none" stroke="#3D444D" rx="3"/>
-<rect x="0" y="0" width="4" height="100" fill="#FFFFFF"/>
-<text x="32" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" fill="#FFFFFF" font-weight="700" letter-spacing="-0.3">CHIMERA</text>
-<text x="32" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9198A1">A desktop environment for reading someone else's codebase — or your own, six months</text>
-<text x="32" y="87" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9198A1">later. It indexes the project and draws what depends on what.</text>
-<text x="852" y="46" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#9198A1" letter-spacing="0.6" text-anchor="end">Python · Qt 6 · QML</text>
-<text x="852" y="70" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.6" text-anchor="end">OPEN ↗</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="144" viewBox="0 0 880 144" role="img" aria-label="CHIMERA — A desktop environment for reading someone else's codebase — or your own, six months later. It indexes the project and draws what depends on what.">
+<rect width="880" height="144" fill="#0D1117"/>
+<rect x="0.5" y="0.5" width="879" height="131" fill="none" stroke="#262C36"/>
+<rect x="0" y="0" width="3" height="132" fill="#FFFFFF"/>
+<text x="36" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="108" fill="#FFFFFF" font-weight="800" letter-spacing="-6" opacity="0.075">01</text>
+<text x="56" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" fill="#FFFFFF" font-weight="700" letter-spacing="-0.5">CHIMERA</text>
+<text x="56" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#8B949E">A desktop environment for reading someone else's codebase — or your own, six</text>
+<text x="56" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#8B949E">months later. It indexes the project and draws what depends on what.</text>
+<text x="56" y="120" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#8B949E" letter-spacing="1.4">Python · Qt 6 · QML</text>
+<line x1="674" y1="40" x2="824" y2="40" stroke="#262C36" stroke-width="1"/>
+<text x="824" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#FFFFFF" font-weight="700" letter-spacing="-1" text-anchor="end">12</text>
+<text x="824" y="92" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="9" fill="#8B949E" letter-spacing="2.2" text-anchor="end">RELEASES</text>
+<text x="824" y="120" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10" fill="#FFFFFF" letter-spacing="1.8" text-anchor="end">OPEN ↗</text>
 </svg>

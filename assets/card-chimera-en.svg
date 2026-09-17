@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="120" viewBox="0 0 880 120" role="img" aria-label="CHIMERA — A desktop environment for reading someone else's codebase — or your own, six months later. It indexes the project and draws what depends on what.">
+<rect width="880" height="120" fill="#000000"/>
+<rect x="0.5" y="0.5" width="879" height="109" fill="none" stroke="#2B2B2B" rx="3"/>
+<rect x="0" y="0" width="4" height="110" fill="#FFFFFF"/>
+<text x="32" y="34" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="10.5" fill="#9A9A9A" letter-spacing="2.4">02</text>
+<text x="32" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" fill="#FFFFFF" font-weight="700" letter-spacing="-0.3">CHIMERA</text>
+<text x="32" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9A9A9A">A desktop environment for reading someone else's codebase — or your own, six months</text>
+<text x="32" y="99" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9A9A9A">later. It indexes the project and draws what depends on what.</text>
+<text x="852" y="34" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#9A9A9A" letter-spacing="0.6" text-anchor="end">Python · Qt 6 · QML</text>
+<text x="852" y="60" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.6" text-anchor="end">OPEN ↗</text>
+</svg>

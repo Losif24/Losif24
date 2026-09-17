@@ -1,36 +1,33 @@
-<img alt="José Durán — Software Developer · Backend, Desktop, Systems" src="assets/hero-en.svg?v=4" width="100%">
+<img alt="José Durán — Software Developer, Bogotá, Colombia" src="assets/header-en.svg?v=5" width="100%">
 
-<p align="right"><b>English</b> · <a href="README.es.md">Español</a></p>
+<p align="right"><sub><b>English</b> · <a href="README.es.md">Español</a></sub></p>
 
-## About Me
+Software developer in Bogotá. I work on desktop applications in C++ and Qt, the backends behind them, and Android in Kotlin and Compose.
 
-I'm José, a developer in Bogotá. Most of my time goes into desktop applications — the kind that have to keep drawing while the data keeps arriving — and into the backend that feeds them.
+Almost everything I build, I also ship — packaged, versioned, installed on someone's machine. Currently finishing a Systems Engineering degree at Fundación Universitaria del Área Andina.
 
-Almost everything I build, I also ship: packaged, versioned, installed on somebody's machine. That part taught me more than any course did. A feature isn't finished because it runs on my laptop.
+### Work
 
-Right now I'm finishing my Systems Engineering degree at Área Andina while keeping my own projects alive.
+**[Chimera](https://github.com/Losif24/chimera-releases)** — A desktop environment for reading and maintaining a codebase: it indexes the project and maps what depends on what.
+`Python` `Qt 6` `QML` — 12 releases
 
-## Tech Stack
+**[Trading Tuff](https://github.com/Losif24/TradingTuff)** — A Windows terminal for reading a market in real time: live data and a chart engine written from scratch.
+`C++17` `Qt 6` `SQLite` — 202 downloads
 
-<img alt="Desktop: C++17, Qt 6, C#/WPF, PySide6, Win32/ConPTY. Mobile: Kotlin, Jetpack Compose, Material 3, Android SDK. Backend: Python, FastAPI, SQLite, Supabase, WebSocket. Web: TypeScript, React, HTML/CSS. Delivery: Git, CMake/MSBuild, Inno Setup, OpenCV" src="assets/stack-en.svg?v=4" width="100%">
+<sub>180 versions shipped · 214 installer downloads · on GitHub since 2022</sub>
 
-## Featured Projects
+### Stack
 
-<a href="https://github.com/Losif24/chimera-releases"><img alt="CHIMERA — a desktop environment for reading and maintaining a codebase, 12 releases" src="assets/card-chimera-en.svg?v=4" width="100%"></a>
+**Desktop** — C++17, Qt 6, C# / WPF, PySide6, Win32 / ConPTY
+**Mobile** — Kotlin, Jetpack Compose, Material 3, Android SDK
+**Backend** — Python, FastAPI, SQLite, Supabase, WebSocket
+**Web** — TypeScript, React
+**Delivery** — Git, CMake / MSBuild, Inno Setup
 
-<a href="https://github.com/Losif24/TradingTuff"><img alt="TRADING TUFF — a Windows terminal for reading a market in real time, 202 downloads" src="assets/card-tradingtuff-en.svg?v=4" width="100%"></a>
+### Contact
 
-## GitHub Stats
-
-<img alt="180 versions shipped, 214 installer downloads, on GitHub since 2022" src="assets/stats-en.svg?v=4" width="100%">
-
-## Contact
-
-<img alt="" src="assets/rule.svg?v=4" width="100%">
-
-If you're hiring for **backend, desktop or C++** work — remote or in Bogotá — I'd like to hear about it.
+Open to backend, desktop and C++ work — remote or in Bogotá.
 
 <!-- Pega aquí tus enlaces y vuelve a subir:
-- LinkedIn — https://linkedin.com/in/TU_USUARIO
-- Email — tu@correo.com
+[LinkedIn](https://linkedin.com/in/TU_USUARIO) · tu@correo.com
 -->

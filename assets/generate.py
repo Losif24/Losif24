@@ -1,10 +1,8 @@
-# Genera las imágenes del perfil y el bloque Stack de los dos README.
+# Genera las piezas del stack y escribe el bloque Stack de los dos README.
 #
 # Criterio, después de haberme pasado de decorativo tres veces:
-#   - Una sola pieza grande. Todo lo demás es texto de Markdown, que es lo que hace
-#     un perfil de ingeniero de verdad: se selecciona, se busca, se lee en cualquier parte.
-#   - La cabecera NO lleva el nombre: GitHub ya lo pone en la barra de al lado.
-#     Lleva el oficio. Sin caja, sin borde, fondo el de GitHub, margen izquierdo cero.
+#   - El perfil es texto de Markdown. Sin cabecera: el nombre ya sale en la barra
+#     lateral de GitHub, y una lámina oscura desentona con el fondo de la tarjeta.
 #   - En el stack, icono y nombre van en UNA sola imagen por tecnología. Separados,
 #     Chrome parte la línea entre la imagen y su nombre aunque haya un &nbsp; (lo manda
 #     la especificación de CSS) y GitHub borra cualquier style que lo impediría.
@@ -14,23 +12,16 @@
 #
 # Uso:  python assets/generate.py
 
-import base64
-import io
+import hashlib
 import math
 import os
 import re
 
-from fontTools import subset
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
 from fontTools.varLib import instancer
-
-LINES = {
-    "en": ("Software developer", "FULL-STACK · BACKEND · C++/QT · MOBILE"),
-    "es": ("Desarrollador de software", "FULL-STACK · BACKEND · C++/QT · MÓVIL"),
-}
 
 # Una fila por área. Cada tecnología: (icono de Devicon o None, nombre).
 # El nombre puede ser {"en": ..., "es": ...} cuando cambia con el idioma.
@@ -83,15 +74,11 @@ DEVICON = {
     "pm2": 0xECE5,           # pm2-plain
 }
 
-BG, INK, MUTED = "#0D1117", "#E6EDF3", "#8B949E"
 ITEM_INK = "#848D97"  # 5.6:1 sobre #0D1117 y 3.4:1 sobre blanco
-W, H = 880, 96
-XMLDECL = '<?xml version="1.0" encoding="UTF-8"?>'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FONTDIR = os.path.join(HERE, "fonts")
 STACKDIR = os.path.join(HERE, "stack")
-STACK_V = 1  # súbelo al regenerar: GitHub sirve /raw/ con caché
 
 # Geometría de cada pieza del stack. El README la pone con align="absmiddle", que
 # centra la imagen en la línea base + media altura de x del texto (unos 4 px a 16 px):
@@ -102,68 +89,14 @@ ICON_PX, ICON_GAP = 15.0, 6.0
 ITEM_PAD_R = 14.0     # aire tras cada tecnología; el espacio del Markdown suma 4 px más
 ICON_PAD = 0.04
 
-FACES = {
-    "big": dict(file="SpaceGrotesk.ttf", wght=600, family="TuffName",
-                fallback="'Segoe UI', Helvetica, Arial, sans-serif"),
-    "mono": dict(file="JetBrainsMono.ttf", wght=400, family="TuffMono",
-                 fallback="Consolas, 'Liberation Mono', monospace"),
-}
-
-
 def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
              .replace('"', "&quot;"))
 
 
-def load(face_key):
-    spec = FACES[face_key]
-    font = TTFont(os.path.join(FONTDIR, spec["file"]))
-    if spec["wght"] is not None and "fvar" in font:
-        font = instancer.instantiateVariableFont(font, {"wght": spec["wght"]}, inplace=False)
-    return font
-
-
-def embed(face_key, chars):
-    """Recorta la fuente a esos caracteres y la devuelve en base64 woff2."""
-    font = load(face_key)
-    opts = subset.Options(layout_features=["*"], notdef_outline=True)
-    opts.drop_tables += ["DSIG"]
-    sub = subset.Subsetter(options=opts)
-    sub.populate(text=chars)
-    sub.subset(font)
-    buf = io.BytesIO()
-    font.flavor = "woff2"
-    font.save(buf)
-    return base64.b64encode(buf.getvalue()).decode("ascii")
-
-
-def header(lang):
-    big, sub = LINES[lang]
-    faces = {"big": big, "mono": sub}
-    css = "".join(
-        f"@font-face{{font-family:'{FACES[k]['family']}';font-style:normal;font-weight:400;"
-        f"src:url(data:font/woff2;base64,{embed(k, ''.join(sorted(set(v))))}) format('woff2')}}"
-        for k, v in faces.items())
-
-    def txt(x, y, s, size, fill, face, sp=None):
-        spec = FACES[face]
-        a = [f'x="{x}"', f'y="{y}"',
-             f'font-family="{spec["family"]}, {spec["fallback"]}"',
-             f'font-size="{size}"', f'fill="{fill}"']
-        if sp is not None:
-            a.append(f'letter-spacing="{sp}"')
-        return f'<text {" ".join(a)}>{esc(s)}</text>'
-
-    return "\n".join([
-        XMLDECL,
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
-        f'viewBox="0 0 {W} {H}" role="img" aria-label="{esc(big)} — {esc(sub)}">',
-        f"<defs><style>{css}</style></defs>",
-        f'<rect width="{W}" height="{H}" fill="{BG}"/>',
-        txt(0, 46, big, 38, INK, "big", sp=-0.8),
-        txt(0, 74, sub, 12, MUTED, "mono", sp=2.8),
-        "</svg>",
-    ])
+def load_mono():
+    font = TTFont(os.path.join(FONTDIR, "JetBrainsMono.ttf"))
+    return instancer.instantiateVariableFont(font, {"wght": 400}, inplace=False)
 
 
 def ntos(v):
@@ -175,7 +108,7 @@ class Stack:
     """Convierte icono + nombre en una imagen de trazos."""
 
     def __init__(self):
-        self.mono = load("mono")
+        self.mono = load_mono()
         self.mono_glyphs = self.mono.getGlyphSet()
         self.mono_cmap = self.mono.getBestCmap()
         self.upem = self.mono["head"].unitsPerEm
@@ -223,7 +156,7 @@ def stack_markdown(lang, files):
         imgs = []
         for icon, label in items:
             text = label[lang] if isinstance(label, dict) else label
-            imgs.append(f'<img src="assets/stack/{files[(icon, text)]}?v={STACK_V}" '
+            imgs.append(f'<img src="assets/stack/{files[(icon, text)]}" '
                         f'height="{ITEM_H}" align="absmiddle" alt="{esc(text)}">')
         rows.append(f"**{area[lang]}** &ensp;\n" + "\n".join(imgs))
     return "\n\n".join(rows)
@@ -238,10 +171,13 @@ def build_stack():
     for _, items in STACK:
         for icon, label in items:
             for text in (label.values() if isinstance(label, dict) else [label]):
-                name = slug(text) + ".svg"
+                svg = st.item(icon, text) + "\n"
+                # La huella va en el nombre: GitHub redirige /raw/ a una URL SIN la query,
+                # así que un ?v=N no invalida la caché de 5 min; un nombre nuevo sí.
+                name = f"{slug(text)}-{hashlib.sha1(svg.encode()).hexdigest()[:6]}.svg"
                 files[(icon, text)] = name
                 with open(os.path.join(STACKDIR, name), "w", encoding="utf-8", newline="\n") as f:
-                    f.write(st.item(icon, text) + "\n")
+                    f.write(svg)
     total = sum(os.path.getsize(os.path.join(STACKDIR, n)) for n in set(files.values()))
     print(f"  stack/   {len(set(files.values()))} piezas   {total/1024:.1f} KB en total")
 
@@ -258,9 +194,4 @@ def build_stack():
         print(f"  {readme}   bloque Stack reescrito")
 
 
-for lang in LINES:
-    path = os.path.join(HERE, f"header-{lang}.svg")
-    with open(path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(header(lang) + "\n")
-    print(f"  header-{lang}.svg   {os.path.getsize(path)/1024:.1f} KB")
 build_stack()

@@ -1,5 +1,3 @@
-<img alt="Software developer — full-stack, backend, C++/Qt, mobile" src="assets/header-en.svg?v=8" width="100%">
-
 <p align="right"><sub><b>English</b> · <a href="README.es.md">Español</a></sub></p>
 
 I work from Soledad, Atlántico, Colombia. I build REST APIs and backend services with Node.js, Spring Boot and FastAPI, web interfaces with React and Next.js, native desktop applications with C++/Qt and .NET WPF, and Android apps with Kotlin and Compose.
@@ -25,51 +23,51 @@ REST APIs and backend services in Node.js and Spring Boot that automate the club
 
 <!-- stack:start -->
 **Backend** &ensp;
-<img src="assets/stack/node-js.svg?v=1" height="20" align="absmiddle" alt="Node.js">
-<img src="assets/stack/java.svg?v=1" height="20" align="absmiddle" alt="Java">
-<img src="assets/stack/spring-boot.svg?v=1" height="20" align="absmiddle" alt="Spring Boot">
-<img src="assets/stack/python.svg?v=1" height="20" align="absmiddle" alt="Python">
-<img src="assets/stack/fastapi.svg?v=1" height="20" align="absmiddle" alt="FastAPI">
-<img src="assets/stack/rest.svg?v=1" height="20" align="absmiddle" alt="REST">
-<img src="assets/stack/websocket.svg?v=1" height="20" align="absmiddle" alt="WebSocket">
+<img src="assets/stack/node-js-66237f.svg" height="20" align="absmiddle" alt="Node.js">
+<img src="assets/stack/java-456726.svg" height="20" align="absmiddle" alt="Java">
+<img src="assets/stack/spring-boot-a8e97b.svg" height="20" align="absmiddle" alt="Spring Boot">
+<img src="assets/stack/python-894f14.svg" height="20" align="absmiddle" alt="Python">
+<img src="assets/stack/fastapi-a87940.svg" height="20" align="absmiddle" alt="FastAPI">
+<img src="assets/stack/rest-2174d6.svg" height="20" align="absmiddle" alt="REST">
+<img src="assets/stack/websocket-8cd094.svg" height="20" align="absmiddle" alt="WebSocket">
 
 **Web** &ensp;
-<img src="assets/stack/javascript-es-modules.svg?v=1" height="20" align="absmiddle" alt="JavaScript (ES modules)">
-<img src="assets/stack/typescript-basic.svg?v=1" height="20" align="absmiddle" alt="TypeScript (basic)">
-<img src="assets/stack/react.svg?v=1" height="20" align="absmiddle" alt="React">
-<img src="assets/stack/next-js.svg?v=1" height="20" align="absmiddle" alt="Next.js">
+<img src="assets/stack/javascript-es-modules-d501ae.svg" height="20" align="absmiddle" alt="JavaScript (ES modules)">
+<img src="assets/stack/typescript-basic-e5a823.svg" height="20" align="absmiddle" alt="TypeScript (basic)">
+<img src="assets/stack/react-bcf0b7.svg" height="20" align="absmiddle" alt="React">
+<img src="assets/stack/next-js-41e66c.svg" height="20" align="absmiddle" alt="Next.js">
 
 **Desktop** &ensp;
-<img src="assets/stack/cpp17.svg?v=1" height="20" align="absmiddle" alt="C++17">
-<img src="assets/stack/qt-6-widgets-qml.svg?v=1" height="20" align="absmiddle" alt="Qt 6 (Widgets, QML)">
-<img src="assets/stack/csharp-net-wpf.svg?v=1" height="20" align="absmiddle" alt="C# / .NET WPF">
-<img src="assets/stack/electron.svg?v=1" height="20" align="absmiddle" alt="Electron">
-<img src="assets/stack/pyside6.svg?v=1" height="20" align="absmiddle" alt="PySide6">
-<img src="assets/stack/win32-conpty.svg?v=1" height="20" align="absmiddle" alt="Win32 / ConPTY">
+<img src="assets/stack/cpp17-daea4b.svg" height="20" align="absmiddle" alt="C++17">
+<img src="assets/stack/qt-6-widgets-qml-f23ccc.svg" height="20" align="absmiddle" alt="Qt 6 (Widgets, QML)">
+<img src="assets/stack/csharp-net-wpf-a14a3a.svg" height="20" align="absmiddle" alt="C# / .NET WPF">
+<img src="assets/stack/electron-a3c539.svg" height="20" align="absmiddle" alt="Electron">
+<img src="assets/stack/pyside6-dcfbb3.svg" height="20" align="absmiddle" alt="PySide6">
+<img src="assets/stack/win32-conpty-619599.svg" height="20" align="absmiddle" alt="Win32 / ConPTY">
 
 **Mobile** &ensp;
-<img src="assets/stack/kotlin.svg?v=1" height="20" align="absmiddle" alt="Kotlin">
-<img src="assets/stack/jetpack-compose.svg?v=1" height="20" align="absmiddle" alt="Jetpack Compose">
-<img src="assets/stack/android-sdk.svg?v=1" height="20" align="absmiddle" alt="Android SDK">
-<img src="assets/stack/material-3.svg?v=1" height="20" align="absmiddle" alt="Material 3">
+<img src="assets/stack/kotlin-dc9ee8.svg" height="20" align="absmiddle" alt="Kotlin">
+<img src="assets/stack/jetpack-compose-5178f4.svg" height="20" align="absmiddle" alt="Jetpack Compose">
+<img src="assets/stack/android-sdk-121fab.svg" height="20" align="absmiddle" alt="Android SDK">
+<img src="assets/stack/material-3-6553df.svg" height="20" align="absmiddle" alt="Material 3">
 
 **Data** &ensp;
-<img src="assets/stack/mysql.svg?v=1" height="20" align="absmiddle" alt="MySQL">
-<img src="assets/stack/sqlite.svg?v=1" height="20" align="absmiddle" alt="SQLite">
-<img src="assets/stack/supabase.svg?v=1" height="20" align="absmiddle" alt="Supabase">
-<img src="assets/stack/dbeaver.svg?v=1" height="20" align="absmiddle" alt="DBeaver">
+<img src="assets/stack/mysql-eb6a72.svg" height="20" align="absmiddle" alt="MySQL">
+<img src="assets/stack/sqlite-fa436d.svg" height="20" align="absmiddle" alt="SQLite">
+<img src="assets/stack/supabase-75edf6.svg" height="20" align="absmiddle" alt="Supabase">
+<img src="assets/stack/dbeaver-9b1339.svg" height="20" align="absmiddle" alt="DBeaver">
 
 **Delivery** &ensp;
-<img src="assets/stack/git.svg?v=1" height="20" align="absmiddle" alt="Git">
-<img src="assets/stack/cmake.svg?v=1" height="20" align="absmiddle" alt="CMake">
-<img src="assets/stack/pm2.svg?v=1" height="20" align="absmiddle" alt="PM2">
-<img src="assets/stack/msbuild.svg?v=1" height="20" align="absmiddle" alt="MSBuild">
-<img src="assets/stack/inno-setup.svg?v=1" height="20" align="absmiddle" alt="Inno Setup">
+<img src="assets/stack/git-0f61b1.svg" height="20" align="absmiddle" alt="Git">
+<img src="assets/stack/cmake-ecb035.svg" height="20" align="absmiddle" alt="CMake">
+<img src="assets/stack/pm2-e0eeea.svg" height="20" align="absmiddle" alt="PM2">
+<img src="assets/stack/msbuild-883fbb.svg" height="20" align="absmiddle" alt="MSBuild">
+<img src="assets/stack/inno-setup-945f73.svg" height="20" align="absmiddle" alt="Inno Setup">
 
 **Architecture** &ensp;
-<img src="assets/stack/mvc.svg?v=1" height="20" align="absmiddle" alt="MVC">
-<img src="assets/stack/mvvm.svg?v=1" height="20" align="absmiddle" alt="MVVM">
-<img src="assets/stack/clean-architecture.svg?v=1" height="20" align="absmiddle" alt="Clean Architecture">
+<img src="assets/stack/mvc-5f2eb6.svg" height="20" align="absmiddle" alt="MVC">
+<img src="assets/stack/mvvm-6d668f.svg" height="20" align="absmiddle" alt="MVVM">
+<img src="assets/stack/clean-architecture-c194ec.svg" height="20" align="absmiddle" alt="Clean Architecture">
 <!-- stack:end -->
 
 ### Contact

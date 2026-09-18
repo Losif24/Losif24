@@ -1,24 +1,5 @@
 <p align="right"><sub><a href="README.md">English</a> · <b>Español</b></sub></p>
 
-Trabajo desde Soledad, Atlántico. Construyo APIs REST y servicios backend con Node.js, Spring Boot y FastAPI, interfaces web con React y Next.js, aplicaciones de escritorio nativas con C++/Qt y .NET WPF, y apps Android con Kotlin y Compose.
-
-Casi todo lo que construyo también lo entrego: empaquetado, versionado, corriendo en producción o instalado en la máquina de alguien. Soy tecnólogo en Análisis y Desarrollo de Software del SENA y estudio Ingeniería de Sistemas en la Fundación Universitaria del Área Andina.
-
-### Experiencia
-
-**Desarrollador de software** — Club Deportivo Popular Junior FC S.A. · 6 meses<br>
-APIs REST y servicios backend en Node.js y Spring Boot para automatizar los procesos administrativos internos del club, y las interfaces de administración en React y Next.js que van encima. Herramientas de escritorio en WPF para los flujos que el sistema web no cubría. Esquemas en MySQL y SQLite, y servicios en producción sostenidos con PM2.
-
-### Proyectos
-
-**[Chimera](https://github.com/Losif24/chimera-releases)** — Entorno de escritorio para leer y mantener una base de código: indexa el proyecto y dibuja de qué depende cada archivo.<br>
-`Python` `Qt 6` `QML` — 12 versiones
-
-**[Trading Tuff](https://github.com/Losif24/TradingTuff)** — Terminal de Windows para leer un mercado en vivo: datos en tiempo real y un motor de gráfico escrito desde cero.<br>
-`C++17` `Qt 6` `SQLite` — 202 descargas
-
-<sub>180 versiones publicadas · 214 descargas de instaladores · en GitHub desde 2022</sub>
-
 ### Stack
 
 **Backend** &ensp;
